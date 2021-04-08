@@ -1,0 +1,7 @@
+docker-plugin
+docker-workflow
+credentials 
+configuration-as-code
+git
+locale
+timestamper

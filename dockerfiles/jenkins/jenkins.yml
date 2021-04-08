@@ -1,0 +1,80 @@
+jenkins:
+  systemMessage: "Jenkins configured automatically by Jenkins Configuration as Code plugin\n\n"
+  globalNodeProperties:
+  - envVars:
+      env:
+      - key: VARIABLE1
+        value: foo
+      - key: VARIABLE2
+        value: bar
+      - key: SSH_KEY_PASSWORD
+        value: lolkek
+tool:
+  git:
+    installations:
+      - name: git
+        home: /usr/bin/git
+# credentials:
+#   system:
+#     domainCredentials:
+#       - credentials:
+#           - basicSSHUserPrivateKey:
+#               scope: SYSTEM
+#               id: ssh_with_passphrase_provided
+#               username: ssh_root
+#               passphrase: ${SSH_KEY_PASSWORD}
+#               description: "SSH passphrase with private key file. Private key provided"
+#               privateKeySource:
+#                 directEntry:
+#                   privateKey: ${SSH_PRIVATE_KEY}
+  # clouds:
+  #   - docker:
+  #       name: "docker"
+  #       dockerApi:
+  #         dockerHost:
+  #           uri: "unix:///var/run/docker.sock"
+  #       templates:
+  #         - labelString: "docker-agent"
+  #           dockerTemplateBase:
+  #             # TODO: pin sha256 or versions when using in production
+  #             image: "jenkins/agent"
+  #             volumes:
+  #               - hello:/hello
+  #               - world:/world
+  #             environmentsString: |
+  #               hello=world
+  #               foo=bar
+  #           remoteFs: "/home/jenkins/agent"
+  #           connector:
+  #             attach:
+  #               user: "jenkins"
+  #           instanceCapStr: "10"
+  #           retentionStrategy:
+  #             idleMinutes: 1
+#   securityRealm:
+#     ldap:
+#       configurations:
+#         - groupMembershipStrategy:
+#             fromUserRecord:
+#               attributeName: "memberOf"
+#           inhibitInferRootDN: false
+#           rootDN: "dc=acme,dc=org"
+#           server: "ldaps://ldap.acme.org:1636"
+
+#   nodes:
+#     - permanent:
+#         name: "static-agent"
+#         remoteFS: "/home/jenkins"
+#         launcher:
+#           jnlp:
+#             workDirSettings:
+#               disabled: true
+#               failIfWorkDirIsMissing: false
+#               internalDir: "remoting"
+#               workDirPath: "/tmp"
+
+#   slaveAgentPort: 50000
+#   agentProtocols:
+#     - "jnlp2"
+
+
